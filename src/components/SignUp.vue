@@ -10,6 +10,7 @@
 </template>
 
 <script>
+//Axios is imported for making HTTP requests to the server.
 import axios from 'axios';
 export default{
     name: 'SignUp',
@@ -33,6 +34,8 @@ export default{
                 if(result.status==201){
                     alert("Sign Up done")
                 }
+                // used for saved user info in client browser as localstorage
+                localStorage.setItem("user-info",JSON.stringify(result.data))
             }
         }
    
