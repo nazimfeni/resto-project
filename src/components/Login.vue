@@ -1,27 +1,50 @@
 <template>
-
-<img class="logo" src="../assets/logo.png" alt="" srcset="" >
-<h1>Login</h1>     
-<div class="login">
-
-<input type="email" v-model="email" placeholder="Enter Email" />
-<input type="password" v-model="password" placeholder="Enter Password" />
-<button v-on:click="signUp">Login</button>
-<p>
-    <router-link to="/sign-up">Sign Up</router-link>
-</p>
-</div>    
+  <img class="logo" src="../assets/logo.png" alt="" srcset="" />
+  <h1>Login</h1>
+  <div class="login">
+    <input type="email" v-model="email" placeholder="Enter Email" />
+    <input type="password" v-model="password" placeholder="Enter Password" />
+    <button v-on:click="login">Login</button>
+    <p>
+      <router-link to="/sign-up">Sign Up</router-link>
+    </p>
+  </div>
 </template>
 
 <script>
-export default{
-      // eslint-disable-next-line vue/multi-word-component-names
-      name: 'Login',
+import axios from "axios";
 
-}
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+
+  methods: {
+    async login() {
+      let result = await axios.get(
+        `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+      );
+
+      if (result.status == 200 && result.data.length > 0) {
+        // used for saved user info in client browser as localstorage
+        localStorage.setItem("user-info", JSON.stringify(result.data[0]));
+        // this is for redirect to Home page
+        this.$router.push({ name: "Home" });
+      }
+    },
+  },
+
+  mounted(){
+            let user=localStorage.getItem('user-info');
+            if(user)
+                { this.$router.push({name:'Home'})  }
+        }
+};
 </script>
 
-
-<style>
-
-</style>
+<style></style>
