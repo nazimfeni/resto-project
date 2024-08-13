@@ -32,15 +32,23 @@ export default{
                 });
                 console.warn(result);
                 if(result.status==201){
-                    alert("Sign Up done")
-                }
-                // used for saved user info in client browser as localstorage
+                      // used for saved user info in client browser as localstorage
                 localStorage.setItem("user-info",JSON.stringify(result.data))
+                // this is for redirect to Home page
+                this.$router.push({name:'Home'})
+                }
+             
             }
-        }
-   
+        },
 
+        mounted(){
+            let user=localStorage.getItem('user-info');
+            if(user)
+                { this.$router.push({name:'Home'})  }
+        }
 }
+
+
 
 </script>
 
