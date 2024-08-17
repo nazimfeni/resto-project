@@ -17,30 +17,6 @@
       "name": "Nazim",
       "email": "nazim1@gmail.com",
       "password": "securePass1!"
-    },
-    {
-      "id": "1ca4",
-      "name": "User1",
-      "email": "user1@gmail.com",
-      "password": "securePass2!"
-    },
-    {
-      "id": "29ab",
-      "name": "Tarik",
-      "email": "tarik@gmail.com",
-      "password": "securePass3!"
-    },
-    {
-      "id": "8ef9",
-      "name": "Default User",
-      "email": "default@example.com",
-      "password": "defaultPass!"
-    },
-    {
-      "id": "09cf",
-      "name": "Akif",
-      "email": "akif@gmail.com",
-      "password": "1234567890"
     }
   ],
   "restaurant": [
