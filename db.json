@@ -21,17 +21,52 @@
   ],
   "restaurant": [
     {
-      "id": 1,
+      "id": "1",
       "name": "KFC",
       "address": "Dhaka",
       "contact": "+8801234567890"
     },
-
     {
-      "id": 2,
+      "id": "2",
       "name": "BFC",
       "address": "Dhaka",
       "contact": "+8801234567890"
+    },
+    {
+      "id": "8081",
+      "name": "Nazim JRF",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
+    },
+    {
+      "id": "762b",
+      "name": "Nazim JRF",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
+    },
+    {
+      "id": "e829",
+      "name": "Nazim JRF",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
+    },
+    {
+      "id": "1e0c",
+      "name": "Nazim JRF",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
+    },
+    {
+      "id": "4d72",
+      "name": "admin",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
+    },
+    {
+      "id": "f27a",
+      "name": "Dr. Nazim1",
+      "address": "nazim@gmail.com",
+      "contact": "123333"
     }
   ]
 }

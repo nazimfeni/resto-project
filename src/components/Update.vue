@@ -1,26 +1,61 @@
 <template>
-      <Header />
-      <h1>Update Restaurant Page</h1>      
-      </template>
-      
-      <script>
-      import Header from './Header.vue'
-      export default{
-            // eslint-disable-next-line vue/multi-word-component-names
-            name: 'Update',
-            components:{
-                  Header
-            },
+  <Header />
+  <h1>Update Restaurant Page</h1>
+  <form class="add">
+    <input
+      type="text"
+      placeholder="Enter Name"
+      v-model="restaurant.name"
+      name="name"
+    />
+    <input
+      type="text"
+      placeholder="Enter Address"
+      v-model="restaurant.address"
+      name="address"
+    />
+    <input
+      type="text"
+      placeholder="Enter Contact"
+      v-model="restaurant.contact"
+      name="contact"
+    />
+    <button type="button" v-on:click="addRestaurant">Update Restaurant</button>
+  </form>
+</template>
 
-            mounted(){
-            let user=localStorage.getItem('user-info');
-            if(!user)
-                { this.$router.push({name:'SignUp'})  }
-        }
-}
-      </script>
-      
-      
-      <style>
-      
-      </style>
+<script>
+import axios from "axios";
+import Header from "./Header.vue";
+
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Update",
+  components: {
+    Header,
+  },
+  data() {
+    return {
+      restaurant: {
+        name: "",
+        address: "",
+        contact: "",
+      },
+    };
+  },
+
+  async mounted() {
+    let user = localStorage.getItem("user-info");
+    if (!user) {
+      this.$router.push({ name: "SignUp" });
+    }
+    const result = await axios.get(
+      "http://localhost:3000/restaurant/" + this.$route.params.id
+    );
+
+    this.restaurant = result.data;
+  },
+};
+</script>
+
+<style></style>
