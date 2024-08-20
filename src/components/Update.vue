@@ -20,7 +20,9 @@
       v-model="restaurant.contact"
       name="contact"
     />
-    <button type="button" v-on:click="addRestaurant">Update Restaurant</button>
+    <button type="button" v-on:click="updateRestaurant">
+      Update Restaurant
+    </button>
   </form>
 </template>
 
@@ -42,6 +44,26 @@ export default {
         contact: "",
       },
     };
+  },
+
+  methods: {
+    async updateRestaurant() {
+      const result = await axios.put(
+        "http://localhost:3000/restaurant/" + this.$route.params.id,
+        {
+          name: this.restaurant.name,
+          address: this.restaurant.address,
+          contact: this.restaurant.contact,
+        }
+      );
+      console.warn("Result:", result);
+      if (result.status == 200) {
+        // used for saved user info in client browser as localstorage
+        //  localStorage.setItem("user-info",JSON.stringify(result.data))
+        // this is for redirect to Home page
+        this.$router.push({ name: "Home" });
+      }
+    },
   },
 
   async mounted() {
